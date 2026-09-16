@@ -151,20 +151,18 @@ input{-webkit-appearance:none;appearance:none;}
 .yt-ic{width:16px;height:16px;border-radius:3px;background:#f00;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
 /* ── SET LOGGER ── */
-.sets-hd{display:flex;align-items:center;margin-bottom:4px;}
-.sets-hd-lbl{font-size:10px;font-weight:500;color:var(--t3);letter-spacing:.5px;flex:1;}
-.sets-cols{display:flex;gap:5px;margin-bottom:4px;padding-left:28px;}
-.sets-cols span{flex:1;font-size:10px;color:var(--t3);text-align:center;}
-.sets-cols .cc{width:38px;flex:none;}
-.set-rows{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
-.set-row{display:flex;align-items:center;gap:5px;}
-.set-lbl{font-size:11px;font-weight:500;color:var(--t3);width:22px;flex-shrink:0;font-family:'DM Mono',monospace;}
-.set-in{flex:1;height:40px;background:var(--s3);border:1px solid var(--bd2);border-radius:var(--rs);color:var(--tx);font-size:15px;text-align:center;padding:0 4px;}
-.set-in:focus{outline:none;border-color:var(--go);}
-.set-in::placeholder{color:var(--t3);}
-.set-ck{width:38px;height:40px;border-radius:var(--rs);border:1px solid var(--bd2);background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--t3);flex-shrink:0;transition:all .15s;}
+.sets-hd-lbl{font-size:10px;font-weight:500;color:var(--t3);letter-spacing:.5px;margin-bottom:6px;display:block;}
+.set-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
+.set-row{display:grid;grid-template-columns:26px 1fr 1fr 48px;gap:5px;align-items:center;}
+.set-lbl{font-size:11px;font-weight:600;color:var(--t3);font-family:'DM Mono',monospace;text-align:center;}
+.set-in{min-width:0;width:100%;height:48px;background:var(--s3);border:1px solid var(--bd2);border-radius:var(--rs);color:var(--tx);font-size:16px;text-align:center;padding:0 2px;-webkit-appearance:none;appearance:none;}
+.set-in:focus{outline:none;border-color:var(--go);background:var(--s2);}
+.set-in::placeholder{color:var(--t3);font-size:11px;}
+.set-col-labels{display:grid;grid-template-columns:26px 1fr 1fr 48px;gap:5px;margin-bottom:4px;}
+.set-col-labels span{font-size:10px;color:var(--t3);text-align:center;}
+.set-ck{width:48px;height:48px;border-radius:var(--rs);border:1px solid var(--bd2);background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--t3);transition:all .15s;}
 .set-ck.done-set{background:var(--go-d);border-color:var(--go-b);color:var(--go);}
-.pair-divider{display:flex;align-items:center;gap:8px;margin:10px 0;}
+.pair-divider{display:flex;align-items:center;gap:8px;margin:12px 0;}
 .pdl{flex:1;height:.5px;background:var(--bd);}
 .pdt{font-size:9px;color:var(--t3);letter-spacing:.5px;text-transform:uppercase;}
 
@@ -255,6 +253,44 @@ input{-webkit-appearance:none;appearance:none;}
 .tb svg{width:22px;height:22px;}
 .tb span{font-size:9px;font-weight:500;letter-spacing:.3px;}
 .tb.active{color:var(--go);}
+/* ── CALENDAR ── */
+.cal-wrap{padding:10px 12px 20px;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.cal-nav-title{font-size:16px;font-weight:600;letter-spacing:-.3px;}
+.cal-nav-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--bd2);background:var(--s2);display:flex;align-items:center;justify-content:center;color:var(--t2);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-dow{text-align:center;font-size:10px;font-weight:600;color:var(--t3);padding:4px 0 6px;letter-spacing:.4px;}
+.cal-day{border-radius:var(--rs);padding:6px 2px 5px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;min-height:46px;border:1px solid transparent;transition:all .15s;}
+.cal-day.other-month{opacity:.25;}
+.cal-day.today{border-color:var(--go-b);background:var(--go-d);}
+.cal-day.selected{border-color:var(--go);background:var(--go-d);}
+.cal-day.has-log{border-color:var(--bd2);}
+.cal-num{font-size:13px;font-weight:500;color:var(--t2);line-height:1;}
+.cal-day.today .cal-num{color:var(--go);font-weight:600;}
+.cal-day.selected .cal-num{color:var(--go);}
+.cal-dots{display:flex;gap:2px;flex-wrap:wrap;justify-content:center;min-height:6px;}
+.cal-dot{width:5px;height:5px;border-radius:50%;}
+.cal-detail{margin-top:12px;border-radius:var(--r);border:1px solid var(--bd2);background:var(--s1);overflow:hidden;}
+.cal-detail-hd{padding:12px 14px 8px;border-bottom:1px solid var(--bd);}
+.cal-detail-date{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:4px;}
+.cal-detail-empty{padding:16px 14px;font-size:12px;color:var(--t3);text-align:center;}
+.cal-log-entry{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:.5px solid var(--bd);}
+.cal-log-entry:last-child{border-bottom:none;}
+.cal-log-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cal-log-name{font-size:13px;font-weight:500;color:var(--tx);flex:1;}
+.cal-log-meta{font-size:11px;color:var(--t3);}
+.cal-add-btn{width:100%;padding:12px;border-top:1px solid var(--bd);background:transparent;font-size:13px;font-weight:500;color:var(--go);display:flex;align-items:center;justify-content:center;gap:7px;}
+.wp-wrap{padding:10px 12px 16px;}
+.wp-title{font-size:13px;font-weight:500;color:var(--tx);margin-bottom:10px;}
+.wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px;}
+.wp-btn{padding:12px 8px;border-radius:var(--r);border:1px solid var(--bd2);background:var(--s1);display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;}
+.wp-btn-dot{width:10px;height:10px;border-radius:50%;}
+.wp-btn-nm{font-size:12px;font-weight:500;color:var(--tx);}
+.wp-back{padding:8px 0;font-size:12px;color:var(--t3);background:transparent;width:100%;}
+.fb-toggle-row{display:flex;align-items:center;gap:10px;padding:14px;background:var(--s1);border-radius:var(--r);border:1px solid var(--bd2);margin-bottom:8px;}
+.fb-toggle-lbl{font-size:13px;font-weight:500;color:var(--tx);flex:1;}
+.fb-toggle-btn{padding:7px 18px;border-radius:var(--rs);border:1px solid var(--bd2);background:var(--s3);font-size:12px;font-weight:500;color:var(--t2);}
+.fb-toggle-btn.done{background:var(--go-d);border-color:var(--go-b);color:var(--go);}
 </style>
 </head>
 <body>
@@ -276,9 +312,13 @@ input{-webkit-appearance:none;appearance:none;}
 <div class="day-strip"><div class="day-inner" id="day-inner"></div></div>
 <div id="app"></div>
 <div class="tab-bar">
-  <button class="tb active" id="tb-today" onclick="switchTab('today')">
+  <button class="tb" id="tb-today" onclick="switchTab('today')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
     <span>Today</span>
+  </button>
+  <button class="tb" id="tb-calendar" onclick="switchTab('calendar')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+    <span>Calendar</span>
   </button>
   <button class="tb" id="tb-history" onclick="switchTab('history')">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -599,11 +639,13 @@ const SCHEDULE={
 let log={},prefs={};
 let mode='gym',fbDay='mon',view='Mon',energy=100,curTab='today';
 let openCard=null,timers={};
+// Calendar state
+let calSelectedDate=null,calPickerDate=null,calMonth=null,calLogDate=null;
 
 const dateKey=()=>new Date().toISOString().slice(0,10);
 const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const todayName=()=>DOW[new Date().getDay()];
-const logKey=(d)=>dateKey()+'__'+d;
+const logKey=(d)=>(calLogDate||dateKey())+'__'+d;
 const metaK=k=>['_m','_e'].includes(k);
 
 function applyPrefs(){
@@ -769,15 +811,15 @@ function exBodyHTML(ex,exKey,dayId){
   if(ex.tnote)h+=`<div class="tnote">${ex.tnote}</div>`;
   if(ex.corr)h+=`<div class="corr"><b>Corrective cue</b>${ex.corr}</div>`;
   // Set logger
-  h+=`<div class="sets-hd"><span class="sets-hd-lbl">Log sets</span></div>`;
-  h+=`<div class="sets-cols"><span>Reps</span><span>Weight (kg)</span><div class="cc"></div></div>`;
+  h+=`<span class="sets-hd-lbl">Log sets</span>`;
+  h+=`<div class="set-col-labels"><span></span><span>Reps</span><span>kg</span><span></span></div>`;
   h+=`<div class="set-rows">`;
   for(let s=0;s<2;s++){
     const prev=prevSets[s]||{};
     h+=`<div class="set-row">
       <span class="set-lbl">${s+1}</span>
-      <input class="set-in" type="number" id="ri-${exKey}-${s}" placeholder="${ex.s.replace(/[^0-9]/g,'').slice(0,4)||'reps'}" value="${esc(prev.r||'')}" inputmode="numeric" min="0">
-      <input class="set-in" type="number" id="wi-${exKey}-${s}" placeholder="—" value="${esc(prev.w||'')}" inputmode="decimal" min="0" step="0.5">
+      <input class="set-in" type="number" id="ri-${exKey}-${s}" placeholder="reps" value="${esc(prev.r||'')}" inputmode="numeric" min="0">
+      <input class="set-in" type="number" id="wi-${exKey}-${s}" placeholder="kg" value="${esc(prev.w||'')}" inputmode="decimal" min="0" step="0.5">
       <button class="set-ck${prev.done?' done-set':''}" id="ck-${exKey}-${s}" data-exkey="${exKey}" data-si="${s}" data-rest="${ex.rest||60}" data-day="${dayId}">✓</button>
     </div>`;
   }
@@ -796,7 +838,7 @@ function pairCardHTML(pair,pi,dayId){
   const t=timers[tid];
   const maxRest=Math.max(pair.a.rest||60,pair.b?.rest||0);
 
-  let h=`<div class="pair-card${pDone?' pair-done':''}${isOpen?' pair-open':''}${pair.cross?' cross':''}" id="pair-${pi}">
+  let h=`<div class="pair-card${pDone?' pair-done':''}${pair.cross?' cross':''}" id="pair-${pi}">
     <div class="pair-hd" data-pair="${pi}">
       <div class="pair-hd-info">
         <div class="pair-top">
@@ -821,41 +863,31 @@ function pairCardHTML(pair,pi,dayId){
         ${pDone?`<div class="pair-done-ico"><svg viewBox="0 0 12 12" fill="none" stroke="var(--go)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5L4.5 9L10 3"/></svg></div>`:
         `<svg viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="1.8" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>`}
       </div>
-    </div>`;
-
-  if(isOpen){
-    h+=`<div class="pair-body">`;
-    h+=exBodyHTML(pair.a,aKey,dayId);
-    if(pair.b){
-      h+=`<div class="pair-divider"><div class="pdl"></div><div class="pdt">then</div><div class="pdl"></div></div>`;
-      h+=exBodyHTML(pair.b,bKey,dayId);
-    }
-    // Rest timer
-    const left=t?.left??maxRest;const run=t?.running||false;
-    h+=`<div class="rest-row">
-      <span class="rest-lbl">Rest · ${maxRest}s</span>
-      <span class="rest-ct${run?' ticking':left===0?' done-rest':''}" id="tc-${tid}">${left===0?'GO!':left+'s'}</span>
-      <button class="rest-btn${run?' running':''}" id="tb-${tid}" data-tid="${tid}" data-rest="${maxRest}">${run?'Stop':'Start'}</button>
-    </div>`;
-    const lbl=pDone?'✓ Done — tap to undo':'Mark pair done';
-    h+=`<button class="mark-btn${pDone?' done-mark':''}" data-markpair="${pi}" data-hasb="${!!pair.b}" data-day="${dayId}">${lbl}</button>`;
-    h+=`</div>`;
-  }
-  h+=`</div>`;
+    </div>
+    <div class="pair-body">
+      ${exBodyHTML(pair.a,aKey,dayId)}
+      ${pair.b?`<div class="pair-divider"><div class="pdl"></div><div class="pdt">then</div><div class="pdl"></div></div>${exBodyHTML(pair.b,bKey,dayId)}`:''}
+      <div class="rest-row">
+        <span class="rest-lbl">Rest · ${maxRest}s</span>
+        <span class="rest-ct" id="tc-${tid}">${maxRest}s</span>
+        <button class="rest-btn" id="tb-${tid}" data-tid="${tid}" data-rest="${maxRest}">Start</button>
+      </div>
+      <button class="mark-btn${pDone?' done-mark':''}" data-markpair="${pi}" data-hasb="${!!pair.b}" data-day="${dayId}">${pDone?'✓ Done — tap to undo':'Mark pair done'}</button>
+    </div>
+  </div>`;
   return h;
 }
 
 function simpleExpandCard(item,cardType){
-  const isOpen=openCard===item.id;
   const tagClass=item.t==='rt'?'rt':'bt';
-  return `<div class="exp-card${cardType==='rehab'?' rehab':''}${isOpen?' open':''}" id="exp-${item.id}">
+  return `<div class="exp-card${cardType==='rehab'?' rehab':''}" id="exp-${item.id}">
     <div class="exp-hd" data-eid="${item.id}">
       <div class="exp-hd-info">
         <div class="exp-nm">${item.n}</div>
         <div class="exp-sp">${item.s}</div>
       </div>
       ${item.t?`<span class="exp-tag ${tagClass}">${item.t==='rt'?'targeted':'bilateral'}</span>`:''}
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="1.8" stroke-linecap="round" width="16" height="16" style="flex-shrink:0;transition:transform .2s;${isOpen?'transform:rotate(180deg);':''}"><path d="M6 9l6 6 6-6"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--t3)" stroke-width="1.8" stroke-linecap="round" width="16" height="16" style="flex-shrink:0;transition:transform .2s;"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="exp-body">
       ${item.yt?`<a class="yt-a" href="${item.yt}" target="_blank" onclick="event.stopPropagation()"><div class="yt-ic"><svg viewBox="0 0 10 10" fill="white" width="8" height="8"><polygon points="3,1 9,5 3,9"/></svg></div>Watch tutorial on YouTube</a>`:''}
@@ -1184,28 +1216,409 @@ function getSessionHTML(dayId){
 function renderSession(){
   if(curTab==='today'){
     document.getElementById('app').innerHTML=getSessionHTML(view);
+  }else if(curTab==='calendar'){
+    document.getElementById('app').innerHTML=renderCalendar();
   }else if(curTab==='history'){
     document.getElementById('app').innerHTML=renderHistory();
   }else if(curTab==='settings'){
     document.getElementById('app').innerHTML=renderSettings();
   }
-  // Restore timer displays
   Object.entries(timers).forEach(([tid,t])=>{
     const el=document.getElementById('tc-'+tid);
     if(el&&t.running){el.textContent=t.left+'s';el.className='rest-ct ticking';}
+  });
+  attachListeners();
+}
+
+/* ══ CALENDAR ════════════════════════════════════════════ */
+const WORKOUT_TYPES={
+  'fba':{name:'Full Body A',color:'#7f77dd'},
+  'fbb':{name:'Full Body B',color:'#639922'},
+  'fbc':{name:'Full Body C',color:'#9b7edb'},
+  'plyo':{name:'Plyo + Rehab',color:'#f5b84e'},
+  'rehab':{name:'Rehab + Run',color:'#4eaff5'},
+  'active-rec':{name:'Active Recovery',color:'#b07ef5'},
+  'football':{name:'Football ⚽',color:'#6db33f'},
+  'daily':{name:'Daily Correctives',color:'#f5604e'},
+  // Legacy schedule day IDs
+  'Mon':{name:'Football',color:'#6db33f'},
+  'Tue':{name:'Active Recovery',color:'#b07ef5'},
+  'Wed':{name:'Full Body A',color:'#7f77dd'},
+  'Thu':{name:'Full Body B',color:'#639922'},
+  'Fri':{name:'Plyo + Rehab',color:'#f5b84e'},
+  'Sat':{name:'Full Body C',color:'#9b7edb'},
+  'Sun':{name:'Rest',color:'#5a5855'},
+};
+
+function getLoggedDates(){
+  const result={};
+  Object.keys(log).forEach(function(key){
+    const parts=key.split('__');
+    if(parts.length<2)return;
+    const dt=parts[0];
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(dt))return;
+    const typeId=parts.slice(1).join('__');
+    if(typeId==='Sun')return; // don't show rest days as logged
+    if(!result[dt])result[dt]=[];
+    result[dt].push(typeId);
+  });
+  return result;
+}
+
+function isoToDate(iso){const[y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d);}
+function dateToISO(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function todayISO(){return dateToISO(new Date());}
+
+function renderCalendar(){
+  const now=new Date();
+  if(!calMonth)calMonth={y:now.getFullYear(),m:now.getMonth()};
+  const {y,m}=calMonth;
+  const loggedDates=getLoggedDates();
+  const todayStr=todayISO();
+  const DOW_LABELS=['M','T','W','T','F','S','S'];
+
+  // First day of month and total days
+  const firstDay=new Date(y,m,1);
+  const lastDay=new Date(y,m+1,0);
+  const startDow=(firstDay.getDay()+6)%7; // Mon=0, Sun=6
+  const totalDays=lastDay.getDate();
+
+  const monthName=firstDay.toLocaleString('en',{month:'long',year:'numeric'});
+
+  let h=`<div class="cal-wrap">
+    <div class="cal-nav">
+      <button class="cal-nav-btn" data-calmonth="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <span class="cal-nav-title">${monthName}</span>
+      <button class="cal-nav-btn" data-calmonth="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+    <div class="cal-grid">`;
+
+  // Day headers
+  DOW_LABELS.forEach(function(d){h+=`<div class="cal-dow">${d}</div>`;});
+
+  // Leading empty cells
+  for(let i=0;i<startDow;i++){h+=`<div class="cal-day other-month"></div>`;}
+
+  // Day cells
+  for(let d=1;d<=totalDays;d++){
+    const iso=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+    const isToday=iso===todayStr;
+    const isSel=iso===calSelectedDate;
+    const logs=loggedDates[iso]||[];
+    const hasLog=logs.length>0;
+    const cls='cal-day'+(isToday?' today':'')+(isSel?' selected':'')+(hasLog?' has-log':'');
+    const dots=logs.slice(0,3).map(function(t){const wt=WORKOUT_TYPES[t];return `<div class="cal-dot" style="background:${wt?wt.color:'#888'}"></div>`;}).join('');
+    h+=`<div class="${cls}" data-calday="${iso}">
+      <span class="cal-num">${d}</span>
+      <div class="cal-dots">${dots}</div>
+    </div>`;
+  }
+  h+=`</div>`; // end cal-grid
+
+  // Selected day detail
+  if(calSelectedDate){
+    h+=renderCalDayDetail(calSelectedDate,loggedDates[calSelectedDate]||[]);
+  }
+
+  h+=`</div>`;
+  return h;
+}
+
+function renderCalDayDetail(iso,typeIds){
+  const d=isoToDate(iso);
+  const dateStr=d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'short',year:'numeric'});
+  const todayStr=todayISO();
+  const isFuture=iso>todayStr;
+
+  // If in picker mode for this date, show workout session
+  if(calPickerDate===iso){
+    return renderCalWorkoutPicker(iso);
+  }
+  // If a workout type is being logged for this date (stored in calLogDate context)
+  if(calLogDate===iso && calPickerDate===null){
+    // Show the logging session
+    const typeId=log['_caltype_'+iso];
+    if(typeId)return renderCalSessionForDate(iso,typeId);
+  }
+
+  let h=`<div class="cal-detail">
+    <div class="cal-detail-hd">
+      <div class="cal-detail-date">${dateStr}</div>
+    </div>`;
+
+  if(typeIds.length===0){
+    h+=`<div class="cal-detail-empty">No workout logged for this day.</div>`;
+  }else{
+    typeIds.forEach(function(typeId){
+      const wt=WORKOUT_TYPES[typeId]||{name:typeId,color:'#888'};
+      const dl=log[iso+'__'+typeId]||{};
+      const done=Object.keys(dl).filter(k=>!metaK(k)&&dl[k]?.done).length;
+      h+=`<div class="cal-log-entry">
+        <div class="cal-log-dot" style="background:${wt.color}"></div>
+        <span class="cal-log-name">${wt.name}</span>
+        <span class="cal-log-meta">${done>0?done+' sets logged':'completed'}</span>
+      </div>`;
+    });
+  }
+
+  if(!isFuture){
+    h+=`<button class="cal-add-btn" data-caladd="${iso}">+ Log a workout for this day</button>`;
+  }
+
+  h+=`</div>`;
+  return h;
+}
+
+function renderCalWorkoutPicker(iso){
+  const d=isoToDate(iso);
+  const dateStr=d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
+  const types=[
+    ['fba','Full Body A'],['fbb','Full Body B'],['fbc','Full Body C'],
+    ['plyo','Plyo + Rehab'],['rehab','Rehab + Run'],['active-rec','Active Recovery'],
+    ['football','Football ⚽'],['daily','Daily Correctives'],
+  ];
+  let h=`<div class="cal-detail">
+    <div class="cal-detail-hd">
+      <div class="cal-detail-date">Log workout · ${dateStr}</div>
+    </div>
+    <div class="wp-wrap">
+      <div class="wp-grid">`;
+  types.forEach(function([id,name]){
+    const wt=WORKOUT_TYPES[id]||{color:'#888'};
+    h+=`<button class="wp-btn" data-calpick="${id}" data-caldate="${iso}">
+      <div class="wp-btn-dot" style="background:${wt.color}"></div>
+      <span class="wp-btn-nm">${name}</span>
+    </button>`;
+  });
+  h+=`</div>
+      <button class="wp-back" data-calcancel="${iso}">← Cancel</button>
+    </div>
+  </div>`;
+  return h;
+}
+
+function renderCalSessionForDate(iso,typeId){
+  const wt=WORKOUT_TYPES[typeId]||{name:typeId,color:'#888'};
+  const d=isoToDate(iso);
+  const dateStr=d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});
+
+  let h=`<div class="cal-detail">
+    <div class="cal-detail-hd">
+      <div class="cal-detail-date">${wt.name} · ${dateStr}</div>
+    </div>`;
+
+  if(typeId==='football'){
+    const lk=iso+'__football';
+    const isDone=!!(log[lk]&&log[lk]._done);
+    h+=`<div class="fb-toggle-row">
+      <span class="fb-toggle-lbl">Football played on this day</span>
+      <button class="fb-toggle-btn${isDone?' done':''}" data-calfbtoggle="${iso}">${isDone?'✓ Played':'Mark played'}</button>
+    </div>`;
+  }else if(typeId==='daily'||typeId==='active-rec'||typeId==='rehab'||typeId==='plyo'){
+    const lk=iso+'__'+typeId;
+    const isDone=!!(log[lk]&&log[lk]._done);
+    h+=`<div class="fb-toggle-row">
+      <span class="fb-toggle-lbl">${wt.name}</span>
+      <button class="fb-toggle-btn${isDone?' done':''}" data-caldone="${iso}" data-caltype="${typeId}">${isDone?'✓ Done':'Mark done'}</button>
+    </div>`;
+  }else{
+    // Full Body session — render full workout with logging
+    const sessMap={'fba':FBA,'fbb':FBB,'fbc':FBC};
+    const sess=sessMap[typeId];
+    if(sess){
+      calLogDate=iso;
+      const pairs=mode==='gym'?sess.gym:sess.home;
+      h+=`<div style="padding:10px 12px 4px;">
+        <div class="note inf" style="margin-bottom:8px;">${sess.note}</div>`;
+      pairs.forEach(function(pair,pi){h+=pairCardHTML(pair,pi,typeId);});
+      h+=`</div>`;
+    }
+  }
+
+  h+=`<button class="wp-back" style="border-top:1px solid var(--bd);padding:12px;" data-calcancel="${iso}">← Back</button>`;
+  h+=`</div>`;
+  return h;
+}
+
+function calSelectDay(iso){
+  calSelectedDate=(calSelectedDate===iso)?null:iso;
+  calPickerDate=null;
+  renderSession();
+}
+function calNavMonth(dir){
+  if(!calMonth){const n=new Date();calMonth={y:n.getFullYear(),m:n.getMonth()};}
+  calMonth.m+=dir;
+  if(calMonth.m>11){calMonth.m=0;calMonth.y++;}
+  if(calMonth.m<0){calMonth.m=11;calMonth.y--;}
+  renderSession();
+}
+function calStartPicker(iso){
+  calPickerDate=iso;
+  calSelectedDate=iso;
+  renderSession();
+}
+function calCancelPicker(iso){
+  calPickerDate=null;
+  calLogDate=null;
+  calSelectedDate=iso;
+  delete log['_caltype_'+iso];
+  renderSession();
+}
+function calPickWorkout(iso,typeId){
+  calPickerDate=null;
+  calLogDate=iso;
+  log['_caltype_'+iso]=typeId;
+  renderSession();
+}
+function calToggleFootball(iso){
+  const lk=iso+'__football';
+  if(!log[lk])log[lk]={};
+  log[lk]._done=!log[lk]._done;
+  schedSave();renderSession();
+}
+function calMarkDone(iso,typeId){
+  const lk=iso+'__'+typeId;
+  if(!log[lk])log[lk]={};
+  log[lk]._done=!log[lk]._done;
+  schedSave();renderSession();
+}
+
+function attachListeners(){
+  // Calendar day cells
+  document.querySelectorAll('[data-calday]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calSelectDay(el.dataset.calday);});
+  });
+  // Calendar month nav
+  document.querySelectorAll('[data-calmonth]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calNavMonth(parseInt(el.dataset.calmonth));});
+  });
+  // Calendar add workout button
+  document.querySelectorAll('[data-caladd]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calStartPicker(el.dataset.caladd);});
+  });
+  // Calendar workout type picker
+  document.querySelectorAll('[data-calpick]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calPickWorkout(el.dataset.caldate,el.dataset.calpick);});
+  });
+  // Calendar cancel
+  document.querySelectorAll('[data-calcancel]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calCancelPicker(el.dataset.calcancel);});
+  });
+  // Football toggle for calendar
+  document.querySelectorAll('[data-calfbtoggle]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calToggleFootball(el.dataset.calfbtoggle);});
+  });
+  // Generic done toggle for calendar
+  document.querySelectorAll('[data-caldone]').forEach(function(el){
+    el.addEventListener('click',function(e){e.stopPropagation();calMarkDone(el.dataset.caldone,el.dataset.caltype);});
+  });
+  // Pair card headers — open/close
+  document.querySelectorAll('.pair-hd[data-pair]').forEach(function(hd){
+    hd.addEventListener('click',function(e){
+      e.stopPropagation();
+      const pi=parseInt(hd.dataset.pair);
+      const card=document.getElementById('pair-'+pi);
+      if(!card)return;
+      const wasOpen=card.classList.contains('pair-open');
+      document.querySelectorAll('.pair-card.pair-open').forEach(function(c){c.classList.remove('pair-open');});
+      if(!wasOpen){
+        card.classList.add('pair-open');
+        setTimeout(function(){card.scrollIntoView({behavior:'smooth',block:'start'});},80);
+      }
+    });
+  });
+
+  // Set checkmark buttons
+  document.querySelectorAll('.set-ck[data-exkey]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      logSetAction(btn.dataset.day,btn.dataset.exkey,parseInt(btn.dataset.si),parseInt(btn.dataset.rest)||60);
+    });
+  });
+
+  // Mark pair done / undo
+  document.querySelectorAll('.mark-btn[data-markpair]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      const pi=parseInt(btn.dataset.markpair);
+      const hasB=btn.dataset.hasb==='true';
+      const day=btn.dataset.day;
+      if(btn.classList.contains('done-mark'))unmarkPairDone(day,pi,hasB);
+      else markPairDone(day,pi,hasB);
+    });
+  });
+
+  // Rest timer buttons
+  document.querySelectorAll('.rest-btn[data-tid]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      toggleTimer(btn.dataset.tid,parseInt(btn.dataset.rest)||60);
+    });
+  });
+
+  // Expand cards (rehab/plyo)
+  document.querySelectorAll('.exp-hd[data-eid]').forEach(function(hd){
+    hd.addEventListener('click',function(e){
+      e.stopPropagation();
+      const id=hd.dataset.eid;
+      const card=document.getElementById('exp-'+id);
+      if(!card)return;
+      const wasOpen=card.classList.contains('open');
+      document.querySelectorAll('.exp-card.open').forEach(function(c){c.classList.remove('open');});
+      if(!wasOpen)card.classList.add('open');
+    });
+  });
+
+  // Daily corrective items
+  document.querySelectorAll('.daily-hd[data-did]').forEach(function(hd){
+    hd.addEventListener('click',function(e){
+      e.stopPropagation();
+      const id=hd.dataset.did;
+      const item=document.getElementById('di-'+id);
+      if(!item)return;
+      const wasOpen=item.classList.contains('open');
+      document.querySelectorAll('.daily-item.open').forEach(function(i){i.classList.remove('open');});
+      if(!wasOpen)item.classList.add('open');
+    });
+  });
+
+  // Energy buttons
+  document.querySelectorAll('.ebtn[data-energy]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      setEnergy(parseInt(btn.dataset.energy));
+    });
+  });
+
+  // Settings action buttons
+  document.querySelectorAll('[data-action]').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      const a=btn.dataset.action;
+      if(a==='save-fb')saveFirebaseUrl();
+      else if(a==='test-fb')testFirebaseConnection();
+      else if(a==='sync-now')manualSync().then(function(){renderSession();});
+      else if(a==='export-data')exportData();
+      else if(a==='import-data')document.getElementById('imp-f')?.click();
+      else if(a==='copy-uid')copyUID();
+      else if(a==='clear-all')clearAll();
+    });
   });
 }
 
 function switchTab(tab){
   curTab=tab;
-  ['today','history','settings'].forEach(t=>{
-    document.getElementById('tb-'+t).classList.toggle('active',t===tab);
+  ['today','calendar','history','settings'].forEach(t=>{
+    const el=document.getElementById('tb-'+t);
+    if(el)el.classList.toggle('active',t===tab);
   });
-  // Show/hide navigation UI for non-today tabs
   const showNav=tab==='today';
   document.querySelector('.ftgl').style.display=showNav?'flex':'none';
   document.querySelector('.day-strip').style.display=showNav?'block':'none';
-  document.querySelector('.energy-row')&&(document.querySelector('.energy-row').style.display=showNav?'flex':'none');
+  const er=document.querySelector('.energy-row');
+  if(er)er.style.display=showNav?'flex':'none';
+  // Reset calendar log context when leaving calendar
+  if(tab!=='calendar'){calLogDate=null;calPickerDate=null;}
   renderSession();
 }
 
@@ -1367,6 +1780,8 @@ async function init(){
   buildStrip();
   renderSession();
   setSyncUI('offline');
+  // Set Today tab active
+  document.getElementById('tb-today').classList.add('active');
 
   // Wire import file input — must use addEventListener, not inline onchange
   document.addEventListener('change',function(e){
